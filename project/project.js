@@ -41,6 +41,7 @@ function getRecipe(id){
         if(item.id == id){
             eachRecipe(item.name, item.iconUrl);
             eachIngredient(item.ingredients);
+            getInsration(item.instructions);
         }
     })
 }
@@ -68,4 +69,17 @@ function eachIngredient( ing){
     `;
     });
     $('#ingredient-result').html(result);
+}
+
+
+function getInsration(step){
+    var getStep = "";
+    var data = step.split('<step>');
+    for(let i=1; i<data.length;i++){
+        getStep+=`
+            <h5 class="text-primary">Step:${i}</h5>
+            <p>${data[i]}</p>
+        `;
+        $('#instruction').html(getStep);
+    }
 }
