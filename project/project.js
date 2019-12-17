@@ -4,10 +4,11 @@ function getUrl(){
 }
 $(document).ready(function(){
     requestApi();
+    $("#hide").hide();
     $('#recipe').on('change', () => {
         var recipeId = $('#recipe').val();
         getRecipe(recipeId);
-       
+        $("#hide").show();
     });
 });
 function requestApi(){
@@ -62,9 +63,9 @@ function eachIngredient( ing){
     result += `
         <tr>
             <td><img src="${item.iconUrl}" width="100"></td>
-            <td>${item.name}</td>
             <td>${item.quantity}</td>
             <td>${item.unit[0]}</td>
+            <td>${item.name}</td>
         </tr>
     `;
     });
@@ -81,5 +82,37 @@ function getInsration(step){
             <p>${data[i]}</p>
         `;
         $('#instruction').html(getStep);
+    }
+}
+
+
+
+
+// counter
+$(document).ready(function(){
+    $('#sum').on("click",function(){
+        var person = $("#show").val();
+        addMember(person);
+    });
+    $('#min').on("click", function(){
+        var person = $("#show").val();
+        minMember(person);
+    });
+    
+});
+// sum function 
+function addMember(member){
+    var add = parseInt(member) + 1;
+    if(add <= 15){
+        $("#show").val(add);
+        compute(add);
+    }
+}
+// min function
+function minMember(member){
+    var min = parseInt(member) - 1;
+    if(min >= 0){
+        $("#show").val(min);
+        compute(min);
     }
 }

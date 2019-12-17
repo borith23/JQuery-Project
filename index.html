@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/hw03-55c60.appspot.com/o/group%20foods.png?alt=media&token=a4c823f9-6caf-48d7-99d0-eb417c8610d0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <title>Borith Project</title>
+    <title>Group Foods</title>
 </head>
-<body>
-    <div class="card">
-        <div class="card-header bg-danger">
-            <img src="https://image.flaticon.com/icons/png/512/45/45332.png" style="width:10%;">
-            <img src="https://vinylbannersprinting.co.uk/wp-content/uploads/2016/05/RB30-um-demo.png" style="width:25%;" class="float-right mt-2">
-        </div> 
-    </div>
+<body style="background-color:#fad278;">
+    
+<!-- <img src="https://firebasestorage.googleapis.com/v0/b/hw03-55c60.appspot.com/o/group%20foods.png?alt=media&token=a4c823f9-6caf-48d7-99d0-eb417c8610d0"
+class="mx-auto d-block mt-5"
+style="width:10%;"> -->
 
-    <div class="container mt-5">
+<div class="container">
+    <img src="https://static.wixstatic.com/media/84770f_8ce8fde924b90df7338475eff3c63d6a.png/v1/fill/w_980,h_9,al_c,lg_1,q_85/84770f_8ce8fde924b90df7338475eff3c63d6a.webp"
+    style="margin-left:70px;" alt="">
+</div>
+
+    <div class="container mt-3">
         <div class="row">
             <div class="col-4"></div>
             <div class="col-4">
@@ -27,39 +31,63 @@
         </div>
     </div>
     
-        <div class="row mt-3">
-            <div class="col-4"></div>
-            <div class="col-4 " id="recipe-result"></div>
-            <div class="col-4"></div>
-        </div>
+        
 
-    <div class="container">
-        <div class="row mt-3">
-            <div class="col-6 " id="ingredient-result"></div>
-            <div class="col-6">
-                <table class="table table-borderless" id="instruction"></table>
+        
+
+
+    <div class="container mt-3" id="hide" >
+        <div class="card bg-primary">
+            <div class="card-body">
+                <div class="card">
+                    <div class="card-primary" style="height:800px;">
+                            <div class="row mt-3">
+                                    <div class="col-4"></div>
+                                    <div class="col-4 " id="recipe-result"></div>
+                                    <div class="col-4"></div>
+                            </div> 
+                                
+                            <div class="container mt-5">
+                                    <div class="row">
+                                        <div class="col-4"></div>
+                                        <div class="col-4">   
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                  <button class="btn btn-primary" id="min" type="submit">-</button>
+                                                </div>
+                                                <input type="text" class="form-control text-center" id="show" disabled value="0">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-success" id="sum" type="submit">+</button>  
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4"></div>
+                                    </div>
+                                </div>  
+                            <div class="container m-5">
+                                    <div class="row ">
+                                        <div class="col-5 ">
+                                            <table class="table table-borderless" id="ingredient-result"></table>
+                                        </div>
+                                        <div class="col-2" id="line"></div>
+                                        <div class="col-5">
+                                            <table class="table table-borderless" id="instruction"></table>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            </div>
+    </div>
+    
+    
+
+    <div class="container mt-3">
+        <img src="https://static.wixstatic.com/media/84770f_1830d4dc3eff10e4d3739e9f01663e02.png/v1/fill/w_940,h_464,al_c,q_90/84770f_1830d4dc3eff10e4d3739e9f01663e02.webp"
+        style="margin-left:90px;" alt="">
     </div>
 
-
-
-
-
-<!-- 
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-5">
-                <h3 id="ingredient"></h3>
-                <table class="table table-borderless" id="ing"></table>
-            </div>
-            <div class="col-2" id="line"></div>
-            <div class="col-5">
-                <h3 id="instructions"></h3>
-                <table class="table table-borderless" id="step"></table>
-            </div>
-        </div>
-    </div> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="project/project.js"></script>
 </body>
