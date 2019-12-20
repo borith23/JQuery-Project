@@ -37,23 +37,32 @@ function chooseRecipe(recipe){
 
 
 //
+var oldGuest = 0;
+var getQuantities = [];
+
 function getRecipe(id){
     allData.forEach(item => {
         if(item.id == id){
             eachRecipe(item.name, item.iconUrl);
             eachIngredient(item.ingredients);
             getInsration(item.instructions);
+            oldGuest = item.nbGuests;
+            getQuantities = item.ingredients;
         }
     })
 }
 //
-function eachRecipe(name, img){
+
+
+function eachRecipe(name, img, guest){
     var result = "";
     result += `
         <img src="${img}" width="170">
         <h3>${name}</h3>
+        
     `;
     $('#recipe-result').html(result);
+    
 }
 
 //
@@ -70,6 +79,14 @@ function eachIngredient( ing){
     `;
     });
     $('#ingredient-result').html(result);
+    $('#sum').on("click", function(){
+        var value = parseInt(('#show').val());
+        addMember(value);
+    });
+    $('#min').on("click", function(){
+        var value = parseInt(('#show').val());
+        minMember(value);
+    });
 }
 
 
@@ -84,6 +101,7 @@ function getInsration(step){
         $('#instruction').html(getStep);
     }
 }
+
 
 
 
@@ -105,14 +123,37 @@ function addMember(member){
     var add = parseInt(member) + 1;
     if(add <= 15){
         $("#show").val(add);
-        compute(add);
+        // compute(add);
+        getPerson(add);
     }
 }
 // min function
 function minMember(member){
     var min = parseInt(member) - 1;
-    if(min >= 0){
+    if(min >= 1){
         $("#show").val(min);
-        compute(min);
+        // compute(min);
+        getPerson(min);
     }
+}
+
+//
+function getPerson(person){
+    console.log(person);
+    var result = "";
+    var quantities;
+    var newQuantity;
+    getQuantities.forEach(item =>{
+       quantities = item.quantity / oldGuest;
+       newQuantity = quantities * person;
+       result += `
+            <tr>
+                <td><img src="${item.iconUrl}" width="100"></td>
+                <td>${newQuantity}</td>
+                <td>${item.unit[0]}</td>
+                <td>${item.name}</td>
+            </tr>
+       `;
+    } );
+    $('#ingredient-result').html(result);
 }
