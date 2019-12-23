@@ -10,6 +10,16 @@ $(document).ready(function(){
         getRecipe(recipeId);
         $("#hide").show();
     });
+
+    ///////
+    $('#sum').on("click",function(){
+        var persons = $("#show").val();
+        addMember(persons);
+    });
+    $('#min').on("click", function(){
+        var persons = $("#show").val();
+        minMember(persons);
+    });
 });
 function requestApi(){
     $.ajax({
@@ -27,8 +37,7 @@ function chooseRecipe(recipe){
     var option = "";
     recipe.forEach(item => {
        option += `
-            <option value="${item.id}">${item.name}</option>
-           
+            <option value="${item.id}">${item.name}</option> 
        `;
 
     });
@@ -46,6 +55,7 @@ function getRecipe(id){
             eachRecipe(item.name, item.iconUrl);
             eachIngredient(item.ingredients);
             getInsration(item.instructions);
+            getGuest(item.nbGuests);
             oldGuest = item.nbGuests;
             getQuantities = item.ingredients;
         }
@@ -53,16 +63,23 @@ function getRecipe(id){
 }
 //
 
-
-function eachRecipe(name, img, guest){
+function eachRecipe(name, img){
     var result = "";
     result += `
         <img src="${img}" width="170">
         <h3>${name}</h3>
-        
     `;
     $('#recipe-result').html(result);
     
+}
+
+function  getGuest(guest){
+    var guests = "";
+    guests+=`
+    <input type="number" class="form-control text-center" id="show" disabled
+    value="${guest}">
+    `;
+    $('#showGuest').html(guests);
 }
 
 //
@@ -71,7 +88,7 @@ function eachIngredient( ing){
     ing.forEach(item => {
     result += `
         <tr>
-            <td><img src="${item.iconUrl}" width="100"></td>
+            <td><img src="${item.iconUrl}" width="80"></td>
             <td>${item.quantity}</td>
             <td>${item.unit[0]}</td>
             <td>${item.name}</td>
@@ -79,14 +96,6 @@ function eachIngredient( ing){
     `;
     });
     $('#ingredient-result').html(result);
-    $('#sum').on("click", function(){
-        var value = parseInt(('#show').val());
-        addMember(value);
-    });
-    $('#min').on("click", function(){
-        var value = parseInt(('#show').val());
-        minMember(value);
-    });
 }
 
 
@@ -96,12 +105,11 @@ function getInsration(step){
     for(let i=1; i<data.length;i++){
         getStep+=`
             <h5 class="text-primary">Step:${i}</h5>
-            <p>${data[i]}</p>
+            <p  style=" font-size: 20px;">${data[i]}</p>
         `;
         $('#instruction').html(getStep);
     }
 }
-
 
 
 
