@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,23 +37,22 @@
     <div class="container mt-3" id="hide">
         <div class="card " style="background-color:#008080;">
             <div class="card-body">
-                <div class="card">
-                    <div class="card-primary" style="height:650px;">
+                <div class="card" style="background-color:#FFEFD5;">
+                    <div class="card-primary" style="height:690px;">
                         <div class="container">
                             <div class="row mt-3">
                                 <div class="col-2"></div>
                                 <div class="col-5 " id="recipe-result"></div>
                                 <div class="col-5 mt-5">
-                                    <p>Number of persons</p>
+                                    <h5><b> Number of persons </b></h5>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <input class="btn btn-primary" id="min" type="submit"value=
+                                            <input class="btn btn-outline-primary" id="min" type="submit"value=
                                             "-">
                                         </div>
-                                        
                                         <div id="showGuest"></div>
                                         <div class="input-group-append">
-                                            <input class="btn btn-success" id="sum" type="submit" value="+">
+                                            <input class="btn btn-outline-primary" id="sum" type="submit" value="+">
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +65,7 @@
                                     <h4><b>Ingredients</b></h4>
                                     <table class="table table-borderless" id="ingredient-result"></table>
                                 </div>
-                                <div class="col-2"></div>
+                                <div class="col-2" id="line" style="border-left:1px solid black; height:auto; margin-left:85px;"></div>
                                 <div class="col-4">
                                     <h4><b>Instructions</b></h4>
                                     <table class="table table-borderless" id="instruction"></table>
@@ -81,13 +79,11 @@
         </div>
     </div>
 
-
-    <div class="container mt-3">
+    <div class="container mt-3" id="hideImg">
         <img src="https://static.wixstatic.com/media/84770f_1830d4dc3eff10e4d3739e9f01663e02.png/v1/fill/w_940,h_464,al_c,q_90/84770f_1830d4dc3eff10e4d3739e9f01663e02.webp"
         style="margin-left:90px;" alt="">
     </div>
-    
-        <div class="row">
+        <div class="row" id="hideFooter">
             <div class="card" style="width: 300px;height: 250px;margin-top: -370px;margin-left: 140px; background-color:#008080;">
                 <div class="card-body">
                     <div class="card" style="background-color:#008080;">
@@ -113,8 +109,8 @@
                 </div>
             </div>
         </div>
-    
-    
+    <img src="https://lumhat.khmeracademy.org/img/img_footer.png" id="hideImgFooter" width="100%" alt="">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="project/project.js"></script>
 </body>
